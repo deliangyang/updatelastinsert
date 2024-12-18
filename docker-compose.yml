@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mysqltest:
+    image: mysql:5.7
+    container_name: mysqltest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    ports:
+      - "3309:3306"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
